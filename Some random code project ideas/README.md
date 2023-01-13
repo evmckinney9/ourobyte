@@ -85,12 +85,9 @@ Another example:
 ```
 
 I can't believe how silly of a problem that was to solve. This makes me wonder how the parser is working. Either inside of HTML mode, the parser sees the spaces and exits to go back to Markdown mode, or inside of HTML mode, the parser sees the spaces and elevates to a nested Markdown mode. I feel like this is overly complicated, but if we simply exit HTML mode, there are other complications related to stitching together the before and after nested Markdown section. It may be the case that the latter is not actually that difficult to implement.
-
-I tried debugging this problem using the help of GPT-3. I gave it intentionally confusing and complex prompts for the sake of experimentation, and unsurprisingly it did not come up with a good answer.
-
 ___
 ## AI Generated Nonsense
-Using GPT-3, temperature 0.8
+I tried debugging this problem using the help of GPT-3. I gave it intentionally confusing and complex prompts for the sake of experimentation, and unsurprisingly it did not come up with a good answer.
 ___
 
 <div>
