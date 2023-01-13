@@ -1,8 +1,10 @@
 1/13/2023
+
 I was sick with COVID this week. Do not recommend!
 
+___
 ## Nested HTML and Markdown rendering + GPT-3
-Summary
+I wonder how Markdown parser/compilers work under the hood.
 ___
 Let's create a problem for the sake of making something interesting. I have been playing around trying to push Markdown formatting to its limits. I feel limited with the options native to Markdown, but a limitted set HTML tags can be used to offer a bit more functionality. However, I find myself wanting to use the HTML features in addition to Markdown features, for example the details tag works fine, until we want to put inside of the details a Markdown header.
 
@@ -18,8 +20,8 @@ Let's create a problem for the sake of making something interesting. I have been
 <details><summary>#### Markdown is Cool</summary>![[Pasted image 20230113021509.png</details>
 ```
 
-My instincts tell me this is just a nightmare case for a compiler to consider. For the same reason, consider the task of compiling this LaTeX snippet in Markdown. This works fine in LaTeX but not in Markdown, of course, because Markdown $\ldots$ , I'm not sure. I know Markdown enters math mode, and definitely not a normal Tex mode enviroment, so we can't go into a second layer of math mode, because we never left the first one. 
-```
+My instincts tell me this is just a nightmare case for a compiler to consider. For the same reason, consider the task of compiling this LaTeX snippet in Markdown. This works fine in LaTeX but not in Markdown, of course, because Markdown $\ldots$ , I'm not sure. I know Markdown enters math mode, and definitely not a normal Tex mode enviroment, so we can't go into a second layer of math mode, because we never left the first one.
+
 ```markdown
 $$
 Section Text
@@ -27,6 +29,10 @@ $$x ^ n + y ^ n =  z ^ n$$
 Section Text 2
 $$
 ```
+
+(This doesn't work)
+![[vscode_markdown.png]]
+
 More practically, we don't enter a second layer of math mode because the parser is only looking for a start and stop, which actually puts `Section Text` inside of math mode, and the equation we wanted to write on the outside. 
 ```markdown
 ```$$
@@ -59,7 +65,7 @@ Another example:
 
 </summary>
 
-![[Pasted image 20230113021509.png]]
+![[wow.png]]
 
 </details>
 
@@ -81,7 +87,9 @@ I can't believe how silly of a problem that was to solve. This makes me wonder h
 I tried debugging this problem using the help of GPT-3. I gave it intentionally confusing and complex prompts for the sake of experimentation, and unsurprisingly it did not come up with a good answer.
 
 ___
-### AI Generated Nonsense
+## AI Generated Nonsense
+Using GPT-3, temperature 0.8
+___
 
 <div>
 Here is my markdown text for a Github README.md file. I want the prompt part and response part to be separated using an HTML details and summary tags. However, inside of this HTML section, I need to write text formatted for Markdown. How can I fix this problem, in other words how can I  render Markdown inside of HTML inside of Markdown? The example I am providing I have already fed through this exact same prompt once. But now I have wrapped it in another layer of html using the ordered list.
@@ -189,10 +197,10 @@ Things I found interesting in this commit:
 ```
 
 It is unclear to me what the `{{SQL CARBON EDIT}}` part of the comment does. I don't think it is used to automate putting the rest of the comment into the pull request, but I could be wrong.
-![[Pasted image 20230113005451.png]]
+![[example_pr.png]]
 
 Here is what a commit with a description looks like:
-![[Pasted image 20230113010041.png]]
+![[example_commit.png]]
 
 Now imagine in my code, limitting ourselves to just Python code for starters, I put a comment like this
 ```python
@@ -204,7 +212,7 @@ return total_score
 ```
 
 We build a tool to then automatically write this commit description:
-![[Pasted image 20230113011433.png]]
+![[example_description.png]]
 
 Do we want to close the issue from a PR comment, which closes the issue when the PR is merged or close the issue from the commit message, which closes the issue when the commit is pushed. What I don't know is 
 1. If closing from a commit message, does it close on if pushed to the main branch?
@@ -212,6 +220,8 @@ Do we want to close the issue from a PR comment, which closes the issue when the
 3. If a fork contains multiple commits with these messages, are the issues closed when the PR is accepted and merged into main?
 
 My guess to all these is probably, but I would need to test for myself. Rather than spamming commits, I should practice using a fork and squashing commits on merge.
+
+___
 
 ## Auto Update Markdown Files to Portfolio Site Blog Section
 Portfolio Typescript + Github Actions to build a blog webpage using this repo of markdown posts.
@@ -244,4 +254,4 @@ Also, linking to other headers is annoying too:
 
 [^2: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll]
 
-[^3: ![[Pasted image 20230113012714.png]]]
+[^3: ![[regex.png]]]
