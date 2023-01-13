@@ -1,6 +1,6 @@
 1/13/2023
 
-I feel too sick to get out of bed in the morning, but now I am staying up way too late.
+I feel too sick to get out of bed in the morning, but now I am staying up way too late because I overslept.
 ___
 
 ![blue.png](images/blue.png) Please provide me the meaning of the phrase, "exceptio probat regulam in casibus non exceptis"
