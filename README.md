@@ -1,3 +1,5 @@
+#### I wrote this using GPT-3 because ChatGPT seems to be having network problems. Temperature=0.8
+
 Here is my markdown text for a Github README.md file. I want the prompt part and response part to be separated using an HTML details and summary tags. However, inside of this HTML section, I need to write text formatted for Markdown. How can I fix this problem, in other words how can I  render Markdown inside of HTML inside of Markdown? The example I am providing I have already fed through this exact same prompt once. But now I have wrapped it in another layer of html using the ordered list.
 
 Example:
@@ -7,10 +9,12 @@ Give me an list of a sentences that have a mispelling. The mispelling is into a 
 
 Rewrite this prompt to be more understandable by GPT-3.
 Response:
-Please provide a list of sentences that contain a spelling mistake, in which the wrong word is spelled correctly but does not make sense in the context of the sentence.
+
+  Please provide a list of sentences that contain a spelling mistake, in which the wrong word is spelled correctly but does not make sense in the context of the sentence.
 
 Now reply to the prompt in your previous response.
-Response:
+
+  Response:
 1. She always made shore to arrive on time. (Should be 'sure') 
 2. He had a habit of packing his bags the nite before. (Should be 'night') 
 3. She had a nice collection of sea shells that she had found on the bay. (Should be 'beach') 
