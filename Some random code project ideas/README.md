@@ -14,10 +14,10 @@ Let's create a problem for the sake of making something interesting. I have been
 <details><summary>Toggle me!</summary>Peek a boo!</details>
 ```
 
-<details><summary>#### Markdown is Cool</summary>![[Pasted image 20230113021509.png</details>
+<details><summary>#### Markdown is Cool</summary>![wow.png](images/wow.png)</details>
 
 ```markdown
-<details><summary>#### Markdown is Cool</summary>![[Pasted image 20230113021509.png</details>
+<details><summary>#### Markdown is Cool</summary>![wow.png](images/wow.png)</details>
 ```
 
 My instincts tell me this is just a nightmare case for a compiler to consider. For the same reason, consider the task of compiling this LaTeX snippet in Markdown. This works fine in LaTeX but not in Markdown, of course, because Markdown $\ldots$ , I'm not sure. I know Markdown enters math mode, and definitely not a normal Tex mode enviroment, so we can't go into a second layer of math mode, because we never left the first one.
@@ -30,8 +30,9 @@ Section Text 2
 $$
 ```
 
-(This doesn't work)
-![[vscode_markdown.png]]
+(This doesn't work):
+
+![vscode_markdown.png](images/vscode_markdown.png)
 
 More practically, we don't enter a second layer of math mode because the parser is only looking for a start and stop, which actually puts `Section Text` inside of math mode, and the equation we wanted to write on the outside. 
 ```markdown
@@ -65,7 +66,8 @@ Another example:
 
 </summary>
 
-![[wow.png]]
+![wow.png](images/wow.png)
+
 
 </details>
 
@@ -77,7 +79,7 @@ Another example:
 
 </summary>
 
-![[Pasted image 20230113021509.png]]
+![wow.png](images/wow.png)
 
 </details>
 ```
@@ -197,10 +199,10 @@ Things I found interesting in this commit:
 ```
 
 It is unclear to me what the `{{SQL CARBON EDIT}}` part of the comment does. I don't think it is used to automate putting the rest of the comment into the pull request, but I could be wrong.
-![[example_pr.png]]
+![example_pr.png](images/example_pr.png)
 
 Here is what a commit with a description looks like:
-![[example_commit.png]]
+![example_commit.png](images/example_commit.png)
 
 Now imagine in my code, limitting ourselves to just Python code for starters, I put a comment like this
 ```python
@@ -212,7 +214,7 @@ return total_score
 ```
 
 We build a tool to then automatically write this commit description:
-![[example_description.png]]
+![example_description.png](images/example_description.png)
 
 Do we want to close the issue from a PR comment, which closes the issue when the PR is merged or close the issue from the commit message, which closes the issue when the commit is pushed. What I don't know is 
 1. If closing from a commit message, does it close on if pushed to the main branch?
@@ -231,7 +233,8 @@ The repo that this file and others will live in will be here, https://github.com
 1. I'm going to use Obsidian as my Markdown editor. The reason I prefer this over vscode is that I can drop images into the editor to automatically update it. The image should be collected in a directory, so that the in-line references to the images work in both on Obsidian and Github. I just need to make sure the file paths are sensically relative. In addition to images, I should make sure that references to other sections (ToC) works.
 2. The title of each blog post is each file name, ordered by date. The date can either be when the commit was made on this file (we can track both the original and most recent dates). Alternatively, the date can be given by the first line in the file (this file as an example) if it exists. 
 3. We should use keywords in the commit messages to indicate if the post should become public or remain as a private draft. I'm sure we can borrow ideas from [the previous idea](#auto-github-commit-message-details) and also use it as an opportunity to learn about [Github Actions](https://github.com/features/actions).
-4. More things to find as I come across them.
+4. Tool which convert image references like this (Obsidian) `![[wow.png]]` to this Github `![wow.png](images/wow.png)`. 
+6. More things to find as I come across them.
 
 ___
 #### Footnotes
@@ -246,12 +249,14 @@ Also, linking to other headers is annoying too:
 ```markdown
 [the previous idea](#auto-github-commit-message-details)
 ```
-4. There is no auto-complete (spoiled!) preview. However, there is a preview if referenceing to an external file with double brackets: ![[Pasted image 20230113020122.png]]
- I should look for a better way to do these things (hotkeys or make our own plug-in?) which builds auto-complete + functional formatting.
+1. There is no auto-complete (spoiled!) preview. However, there is a preview if referenceing to an external file with double brackets:
+![auto-complete.png](images/auto-complete.png)
+
+I should look for a better way to do these things (hotkeys or make our own plug-in?) which builds auto-complete + functional formatting.
 
 #### Footnotes pt 2.
 [^1: https://qiskit.org/documentation/tutorials/circuits_advanced/04_transpiler_passes_and_passmanager.html]
 
 [^2: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll]
 
-[^3: ![[regex.png]]]
+[^3: ![regex.png](images/regex.png)]]
